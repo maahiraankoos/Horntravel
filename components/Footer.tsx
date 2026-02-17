@@ -1,19 +1,15 @@
 
 import React from 'react';
+import Logo from './Logo';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-white border-t border-slate-100 py-12 mt-12 print:hidden">
+    <footer className="bg-white border-t border-slate-100 py-12 mt-12">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-10 text-center md:text-left">
           <div className="md:col-span-1 space-y-4">
             <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
-              <img 
-                alt="Horn Travel Agency Logo" 
-                className="h-8 object-contain opacity-80" 
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS-gcNI4e6hjfrjmYgehO6D4pl8YVqy-JrWw1mJTzDzXRB8ZCq7Fp7sVa_sJSyh3FhTqlZ6KpQum-aC89cPQJN5PXrF19V5dKoCSKQOqu2fz9Nsdi2rspZYmeyh3wl8cCE92v5RXR90NScJe4ONGXL3WLN9-YAKELNGN_acfW2mfC3hp48zDH_DBMLBs_VZ9wB0_aPR-8L_YoGUAENmycIEY5YIfPsu4UHoJHFXM4zYesotkKQUHMGNG15zZ6XiEoiRF1HrPzxHt5m" 
-              />
-              <span className="font-bold text-slate-900">Horn Travel Agency</span>
+              <Logo className="h-10" />
             </div>
             <p className="text-xs text-slate-500 leading-relaxed max-w-xs mx-auto md:mx-0">
               Your trusted partner for worldwide travel arrangements, providing seamless booking experiences since inception.

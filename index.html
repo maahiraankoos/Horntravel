@@ -49,11 +49,10 @@
           scrollbar-width: none;  /* Firefox */
         }
 
-        /* High-End PDF Print Styles */
         @media print {
             @page {
                 size: A4;
-                margin: 20mm;
+                margin: 15mm;
             }
             body {
                 background: white !important;
@@ -65,28 +64,22 @@
             .print\:block {
                 display: block !important;
             }
-            .print\:border-none {
-                border: none !important;
-            }
-            .print\:shadow-none {
-                shadow: none !important;
-                box-shadow: none !important;
+            .print\:border {
+                border: 1px solid #e2e8f0 !important;
             }
             .print\:p-0 {
                 padding: 0 !important;
             }
+            .print\:shadow-none {
+                box-shadow: none !important;
+            }
             .print\:m-0 {
                 margin: 0 !important;
             }
-            .print\:text-black {
-                color: black !important;
-            }
+            /* Force background colors in PDF */
             .print\:bg-slate-50 {
                 background-color: #f8fafc !important;
                 -webkit-print-color-adjust: exact;
-            }
-            .print\:rounded-none {
-                border-radius: 0 !important;
             }
         }
     </style>

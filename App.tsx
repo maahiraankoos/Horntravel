@@ -52,36 +52,28 @@ const App: React.FC = () => {
       const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
       const response = await ai.models.generateContent({
         model: 'gemini-3-flash-preview',
-        contents: `Act as the Lead Coordinator for Horn Travel Agency. 
-        Format this travel inquiry into a professional internal brief for our ticketing team at info@horntravel.com.au.
-        Include critical flight dates, passenger passport status, and stopover requirements.
-        Data: ${JSON.stringify(data)}`,
+        contents: `Create a highly professional, structured plain-text email body for a travel inquiry destined for info@horntravel.com.au. 
+        Include all these details clearly: 
+        Origin/Destination: ${data.origin} to ${data.destination}
+        Dates: ${data.departureDate} to ${data.returnDate}
+        Travelers: ${data.adults} Adults, ${data.children} Children, ${data.infants} Infants
+        Stopover: ${data.needStopover ? `${data.stopoverLocation} for ${data.stopoverDuration}` : 'None'}
+        Requests: ${data.specialRequests || 'None'}
+        Passenger Summary: ${data.passengers.map(p => p.fullName).join(', ')}
+        
+        Return ONLY the email body text. Do not include any other commentary.`,
       });
 
-      const processedSummary = response.text || "Background Inquiry data processed.";
+      const emailBody = response.text || "New Travel Inquiry received. Please review the attached data.";
+      const subject = encodeURIComponent(`New Travel Inquiry: ${data.origin} to ${data.destination}`);
+      const mailtoUrl = `mailto:info@horntravel.com.au?subject=${subject}&body=${encodeURIComponent(emailBody)}`;
 
-      const submissionPayload = {
-        to: "info@horntravel.com.au",
-        subject: `NEW INQUIRY: ${data.origin} to ${data.destination}`,
-        summary: processedSummary,
-        rawData: data,
-        timestamp: new Date().toISOString()
-      };
-
-      // Simulate the background network call
-      const mockResponse = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST',
-        body: JSON.stringify(submissionPayload),
-        headers: { 'Content-type': 'application/json; charset=UTF-8' },
-      });
-
-      if (!mockResponse.ok) throw new Error("Network dispatch failed");
-
-      await new Promise(resolve => setTimeout(resolve, 2500));
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      window.location.href = mailtoUrl;
       setCurrentStep(Step.Confirmation);
     } catch (error) {
-      console.error("Silent submission failed:", error);
-      alert("We encountered an error sending your inquiry automatically. Please try again or call us at 0410 374 786.");
+      console.error("Submission failed:", error);
+      alert("There was an issue sending your inquiry. Please try again or call 0410 374 786.");
     } finally {
       setIsSubmitting(false);
     }
