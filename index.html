@@ -1,100 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Horn Travel Agency</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#0076bd",
-                        "secondary": "#009a4e",
-                        "background-light": "#f8fafc",
-                        "background-dark": "#0f172a",
-                    },
-                    fontFamily: {
-                        "sans": ["Plus Jakarta Sans", "sans-serif"]
-                    }
-                },
-            },
-        }
-    </script>
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-        .btn-gradient {
-            background: linear-gradient(135deg, #0076bd 0%, #009a4e 100%);
-        }
-        .text-gradient {
-            background: linear-gradient(135deg, #0076bd 0%, #009a4e 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        /* Hide scrollbar for Chrome, Safari and Opera */
-        ::-webkit-scrollbar {
-          display: none;
-        }
-        /* Hide scrollbar for IE, Edge and Firefox */
-        * {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-        }
-
-        @media print {
-            @page {
-                size: A4;
-                margin: 15mm;
-            }
-            body {
-                background: white !important;
-                color: black !important;
-            }
-            .print\:hidden {
-                display: none !important;
-            }
-            .print\:block {
-                display: block !important;
-            }
-            .print\:border {
-                border: 1px solid #e2e8f0 !important;
-            }
-            .print\:p-0 {
-                padding: 0 !important;
-            }
-            .print\:shadow-none {
-                box-shadow: none !important;
-            }
-            .print\:m-0 {
-                margin: 0 !important;
-            }
-            /* Force background colors in PDF */
-            .print\:bg-slate-50 {
-                background-color: #f8fafc !important;
-                -webkit-print-color-adjust: exact;
-            }
-        }
-    </style>
-<script type="importmap">
-{
-  "imports": {
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "@google/genai": "https://esm.sh/@google/genai@^1.41.0"
-  }
-}
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horntravel</title>
 </head>
-<body class="bg-[#f8fafc] text-slate-800 antialiased">
-    <div id="root"></div>
+<body>
+    <!-- Other content -->
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
