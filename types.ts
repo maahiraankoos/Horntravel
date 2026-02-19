@@ -8,9 +8,11 @@ export interface Passenger {
   passportNumber: string;
   expiryDate: string;
   nationality: string;
+  passportPhoto?: string; // Base64 string
 }
 
 export interface InquiryData {
+  tripType: 'round-trip' | 'one-way';
   origin: string;
   destination: string;
   departureDate: string;
@@ -22,11 +24,25 @@ export interface InquiryData {
   stopoverLocation: string;
   stopoverDuration: string;
   specialRequests: string;
+  agentCode: string;
   passengers: Passenger[];
+}
+
+export interface InquiryRecord extends InquiryData {
+  id: string;
+  submittedAt: string;
+  status: 'New' | 'Contacted' | 'Closed';
 }
 
 export enum Step {
   TripDetails = 1,
   PassengerInfo = 2,
   Confirmation = 3
+}
+
+export enum AppView {
+  Booking = 'booking',
+  Login = 'login',
+  Admin = 'admin',
+  ManageInquiry = 'manage'
 }
