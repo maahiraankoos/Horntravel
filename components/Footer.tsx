@@ -7,12 +7,19 @@ interface FooterProps {
 }
 
 const Footer: React.FC<FooterProps> = ({ onAdminClick }) => {
+  const handleLogoClick = () => {
+    window.location.href = 'https://horntravel.com.au';
+  };
+
   return (
     <footer className="bg-white border-t border-slate-100 py-12 mt-12">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-10 text-center md:text-left">
           <div className="md:col-span-1 space-y-4">
-            <div className="flex items-center justify-center md:justify-start gap-2 mb-4">
+            <div 
+              className="flex items-center justify-center md:justify-start gap-2 mb-4 cursor-pointer hover:opacity-80 transition-opacity"
+              onClick={handleLogoClick}
+            >
               <Logo className="h-10" />
             </div>
             <p className="text-xs text-slate-500 leading-relaxed max-w-xs mx-auto md:mx-0">
